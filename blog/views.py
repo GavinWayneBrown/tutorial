@@ -14,10 +14,10 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = "post_detail.html"
 
-class BlogCreateView(LoginRequiredMixin,CreateView): 
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "post_new.html"
-    fields = ["title", "body"]
+    fields = ["title", "body", "classes", "available_hours"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
